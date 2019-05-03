@@ -11,6 +11,7 @@ public class Spieler
     private int x;
 
     //Hi
+    // Hi von Gideon
     /**
      * Constructor for objects of class Spieler
      */
