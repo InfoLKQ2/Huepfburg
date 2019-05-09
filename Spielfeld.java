@@ -1,6 +1,7 @@
 import java.awt.Canvas;
-    import java.awt.Dimension;
-    import javax.swing.JFrame;
+import java.awt.Dimension;
+import javax.swing.JFrame;
+
 /**
  * Beschreiben Sie hier die Klasse Spielfeld.
  * 
@@ -11,9 +12,9 @@ public class Spielfeld
 {
    private JFrame frame;
    private Canvas canvas;
-
    private String title;
-   private int width, height;
+   private int width;
+   private int height;
 
    public Spielfeld(String title, int width, int height){
       this.title = title;
@@ -41,7 +42,7 @@ public class Spielfeld
       return canvas;
    }
 
-    public JFrame getFrame(){
+   public JFrame getFrame(){
       return frame;
    }
 }

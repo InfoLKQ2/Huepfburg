@@ -56,7 +56,6 @@ public class Spiel implements Runnable
         }
     }
 
-    
     static void update() {
        try {
          Thread.sleep(14);
@@ -64,6 +63,7 @@ public class Spiel implements Runnable
          e.printStackTrace();
        }
     }
+    
     void render(){}
 }
 
