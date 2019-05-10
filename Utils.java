@@ -50,7 +50,7 @@ public class Utils
             catch(IOException e)
             {
                 e.printStackTrace();
-          }
+            }
         }
         return builder.toString();
     }   
