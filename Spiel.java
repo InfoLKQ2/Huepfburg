@@ -1,4 +1,7 @@
-
+import java.awt.Canvas;
+import java.awt.Point;
+import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
 /**
  * Beschreiben Sie hier die Klasse Spiel.
  * 
@@ -13,7 +16,12 @@ public class Spiel implements Runnable
     public static final long maxLoopTime = 1000 / FPS;
     public static final int SPIELFELD_WIDTH = 640;
     public static final int SPIELFELD_HEIGHT = 640;
-
+    public Spielfeld screen;
+    Player player;
+    //Level level;
+    KeyManager keyManager;
+    BufferStrategy bs;
+    Graphics g;
     /**
      * Konstruktor für Objekte der Klasse Spiel
      */
@@ -22,10 +30,12 @@ public class Spiel implements Runnable
         // Instanzvariable initialisieren
         
     }
-    
+     // KeyManager keyManager = new KeyManager();
+      // spielfeld.getFrame().addKeyListener(keyManager);
+      
     public static void main(String[] args){
       Spiel game = new Spiel();
-      new Spielfeld("Spiel",SPIELFELD_WIDTH,SPIELFELD_HEIGHT);
+      Spielfeld spielfeld = new Spielfeld("Spiel",SPIELFELD_WIDTH,SPIELFELD_HEIGHT);
       new Thread(game).start();
     }
     
@@ -64,6 +74,37 @@ public class Spiel implements Runnable
        }
     }
     
-    void render(){}
+    void render() {};
+    // Canvas c = screen.getCanvas();
+    // bs = c.getBufferStrategy();
+    // if(bs == null){
+      // screen.getCanvas().createBufferStrategy(3);
+      // return;
+    // }
+    // g = bs.getDrawGraphics();
+    // g.clearRect(0, 0, SPIELFELD_WIDTH, SPIELFELD_HEIGHT);
+    // level.renderMap(g);
+    // player.render(g);
+
+    // bs.show();
+    // g.dispose();
+  // }
+    
+    /**
+     * Input for controls
+     */
+    private Point getInput(){ 
+      int xMove = 0;
+      int yMove = 0;
+      if(keyManager.up)
+        yMove = -1;
+      if(keyManager.down)
+        yMove = 1;
+      if(keyManager.left)
+        xMove = -1;
+      if(keyManager.right)
+        xMove = 1;
+      return new Point(xMove, yMove);
+    }
 }
 
