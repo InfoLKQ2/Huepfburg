@@ -98,8 +98,7 @@ public class Spiel implements Runnable
       int yMove = 0;
       if(keyManager.up)
         yMove = -1;
-      if(keyManager.down)
-        yMove = 1;
+      
       if(keyManager.left)
         xMove = -1;
       if(keyManager.right)
