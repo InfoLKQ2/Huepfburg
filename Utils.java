@@ -1,7 +1,8 @@
-import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import javax.imageio.ImageIO;
-import java.awt.Graphics;
+import java.io.FileNotFoundException;
+
 
 /**
  * Beschreiben Sie hier die Klasse Utils.
