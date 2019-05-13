@@ -58,6 +58,7 @@ public class Spiel implements Runnable
            System.out.println(maxLoopTime + " : " + (timestamp-oldTimestamp));
            if(timestamp-oldTimestamp <= maxLoopTime) {
                try {
+                        //Der Thread schläft solange bis die maxLooptime erreicht ist. So dauert jeder Schleifendurchgang nur 1/60 sec.
                         Thread.sleep(maxLoopTime - (timestamp-oldTimestamp) );
                    } catch (InterruptedException e) {
                         e.printStackTrace();
