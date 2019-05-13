@@ -55,9 +55,8 @@ public class Spiel implements Runnable
          
         Tileset tileSet = new Tileset("/tiles/raum_tileSet_64_536.png", 8, 8);
         level = new Level("/level/level1.txt", tileSet);
-        //Cihan war hier
+        //Cihan war hier 
         while(true)
-
         {
             oldTimestamp = System.currentTimeMillis();
             update();
