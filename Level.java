@@ -1,5 +1,10 @@
 import java.awt.Graphics;
 
+/**
+ * Die Klasse Level baut aus den einzelnen Kacheln das Spielfeld zusammen
+ * Author(Clemens Zander, Jupp Bruns)
+ * Version(10.5.19)
+ */
 public class Level
 {
     private Tileset ts;
