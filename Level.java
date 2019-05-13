@@ -29,7 +29,8 @@ public class Level
     {
         for(int tileY = 0; tileY < sizeY; tileY++)
         {
-            for(int tileX = 0; tileX < sizeX; tileX++){
+            for(int tileX = 0; tileX < sizeX; tileX++)
+            {
                 ts.renderTile(g, tileMap[tileX][tileY], tileX * Tileset.TILEBREITE, tileY * Tileset.TILEHOEHE);
             }
         }
