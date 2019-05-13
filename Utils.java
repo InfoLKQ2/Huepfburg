@@ -5,10 +5,9 @@ import java.io.FileNotFoundException;
 
 
 /**
- * Beschreiben Sie hier die Klasse Utils.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * Die Klasse Utils wandelt die Textdatei, welche die Anordnung der Kacheln beinhaltet, in einen lange String um
+ * Author(Clemens Zander, Jupp Bruns)
+ * Version(10.5.19)
  */
 public class Utils
 {
@@ -30,7 +29,7 @@ public class Utils
     }
     
     /**
-     * konvertiert die Textdatei, welche die Anordnung der Kacheln beinhaltet in einen lange String
+     * konvertiert die Textdatei, welche die Anordnung der Kacheln beinhaltet, in einen lange String
      * @param path gibt dem Pfad zur Textdatei an
      */
     public static String loadFileAsString(String path)
