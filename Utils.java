@@ -12,7 +12,8 @@ import java.io.FileNotFoundException;
  */
 public class Utils
 {
-    public static int parseInt(String number){
+    public static int parseInt(String number)
+    {
         try
         {
             return Integer.parseInt(number);

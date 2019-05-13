@@ -16,21 +16,15 @@ public class Spiel implements Runnable
     public static final long maxLoopTime = 1000 / FPS;
     public static final int SPIELFELD_WIDTH = 640;
     public static final int SPIELFELD_HEIGHT = 640;
-    public Spielfeld screen;
-    Player player;
-    //Level level;
-    KeyManager keyManager;
-    BufferStrategy bs;
-    Graphics g;
-    /**
-     * Konstruktor für Objekte der Klasse Spiel
-     */
-    public Spiel()
-    {
-        // Instanzvariable initialisieren
-        
-    }
-     // KeyManager keyManager = new KeyManager();
+    
+    private Spielfeld screen;
+    private Player player;
+    private Level level;
+    private KeyManager keyManager;
+    private BufferStrategy bs;
+    private Graphics g;
+    
+      // KeyManager keyManager = new KeyManager();
       // spielfeld.getFrame().addKeyListener(keyManager);
       
     public static void main(String[] args){
