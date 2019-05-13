@@ -43,6 +43,14 @@ public class Spiel implements Runnable
     public void run() {
         long timestamp;
         long oldTimestamp;
+        
+        screen = new Spielfeld("Game", SCREEN_WIDTH, SCREEN_HEIGHT);
+        keyManager = new KeyManager();
+        screen.getFrame().addKeyListener(keyManager);
+        
+       SpriteSheet playerSprite = new SpriteSheet("/sprites/player.png", 3 /*moves*/, 4 /*directions*/, 64 /*width*/, 64 /*height*/);
+        player = new Player(320, 320, playerSprite.getSpriteElement(1, 0));
+        
         while(running) 
         {
            oldTimestamp = System.currentTimeMillis();
@@ -67,29 +75,28 @@ public class Spiel implements Runnable
         }
     }
 
-    static void update() {
-       try {
-         Thread.sleep(14);
-       } catch (InterruptedException e) {
-         e.printStackTrace();
-       }
+    void update() {
+       keyManager.update();
+       player.setMove(getInput());
+       player.update();
     }
     
-    void render() {};
-    // Canvas c = screen.getCanvas();
-    // bs = c.getBufferStrategy();
-    // if(bs == null){
-      // screen.getCanvas().createBufferStrategy(3);
-      // return;
-    // }
-    // g = bs.getDrawGraphics();
-    // g.clearRect(0, 0, SPIELFELD_WIDTH, SPIELFELD_HEIGHT);
-    // level.renderMap(g);
-    // player.render(g);
+    void render() 
+    {
+        Canvas c = screen.getCanvas();
+        bs = c.getBufferStrategy();
+        if(bs == null){
+            screen.getCanvas().createBufferStrategy(3);
+            return;
+        }
+        g = bs.getDrawGraphics();
+        g.clearRect(0, 0, SPIELFELD_WIDTH, SPIELFELD_HEIGHT);
+        level.renderMap(g);
+        player.render(g);
 
-    // bs.show();
-    // g.dispose();
-  // }
+        bs.show();
+        g.dispose();
+    }
     
     /**
      * Input for controls

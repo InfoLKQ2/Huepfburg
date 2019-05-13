@@ -26,4 +26,9 @@ public abstract class Creature extends Entity {
     entityX += xMove * speed;
     entityY += yMove * speed;
   }
+  
+  public void setMove(Point p) {
+  xMove = p.x;
+  yMove = p.y;
+}
 }
