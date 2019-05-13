@@ -3,6 +3,8 @@ import java.awt.Point;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.awt.image.BufferStrategy;
+import java.io.File;
+import java.io.IOException;
 /**
  * Beschreiben Sie hier die Klasse Spiel.
  * 
@@ -68,39 +70,54 @@ public class Spiel implements Runnable
             update();
             //Die neue Systemzeit wird gespeichert
             timestamp = System.currentTimeMillis();
+            //wenn noch Zeit im Loop übrig ist
             if(timestamp-oldTimestamp <= maxLoopTime)
             {
+                //Zeichne den Spieler neu
                 render();
+                //Die neue Systemzeit wird gespeichert
                 timestamp = System.currentTimeMillis();
+                //Eine Kontrollzeile, muss später weg
                 System.out.println(maxLoopTime + " : " + (timestamp-oldTimestamp));
+                //wenn immer noch Zeit im Loop übrig ist
                 if(timestamp-oldTimestamp <= maxLoopTime)
                 {
                     try
                     {
+                        //warte bis zum Ende
                         Thread.sleep(maxLoopTime - (timestamp-oldTimestamp) );
                     }
                     catch (InterruptedException e)
                     {
+                        
                         e.printStackTrace();
                     }
                 }
             }
             else
             {
+                //Eine Kontrollzeile, muss später weg
                 System.out.println("Wir zu spät!");
             }
-            
         }
     }
-
-    void update() {
-       keyManager.update();
-       player.setMove(getInput());
-       player.update();
+    
+    /**
+     * Eine Methode, die die Eingaben des Benutzers und Positionen des Spielers abruft und ggf. ändert
+     */
+    void update()
+    {
+        keyManager.update();
+        player.setMove(getInput());
+        player.update();
     }
     
+    /**
+     * Eine Methode, die die Spielfigur neuzeichnet, wenn nötig
+     */
     void render() 
     {
+        //kein Plan was hier abgeht - Jupp, bitte irgendwer ändern wenn möglich
         Canvas canvas = screen.getCanvas();
         bufferStrategy = canvas.getBufferStrategy();
         if(bufferStrategy == null){
@@ -111,7 +128,6 @@ public class Spiel implements Runnable
         graphics.clearRect(0, 0, SPIELFELD_WIDTH, SPIELFELD_HEIGHT);
         level.renderMap(graphics);
         player.render(graphics);
-
         bufferStrategy.show();
         graphics.dispose();
     }
