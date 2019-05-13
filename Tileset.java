@@ -53,8 +53,8 @@ public class Tileset
      * @param x x-Koordinate an welche die Kachel gezeichnet werden soll
      * @param y y-Koordinate an welche die Kachel gezeichnet werden soll
      */
-    public void renderTile(Graphics g, int tileNum, int x, int y)
+    public void renderTile(Graphics graphics, int tileNum, int x, int y)
     {
-        g.drawImage(tiles[tileNum], x, y, TILEBREITE, TILEHOEHE, null);
+        graphics.drawImage(tiles[tileNum], x, y, TILEBREITE, TILEHOEHE, null);
     }
 }
