@@ -1,6 +1,7 @@
 import java.awt.Canvas;
 import java.awt.Point;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import java.awt.image.BufferStrategy;
 /**
  * Beschreiben Sie hier die Klasse Spiel.
@@ -34,38 +35,39 @@ public class Spiel implements Runnable
     }
     
     @Override
-    public void run() {
+    public void run()
+    {
         long timestamp;
         long oldTimestamp;
-        
-        screen = new Spielfeld("Game", SCREEN_WIDTH, SCREEN_HEIGHT);
-        keyManager = new KeyManager();
-        screen.getFrame().addKeyListener(keyManager);
-        
-       SpriteSheet playerSprite = new SpriteSheet("/sprites/player.png", 3 /*moves*/, 4 /*directions*/, 64 /*width*/, 64 /*height*/);
-        player = new Player(320, 320, playerSprite.getSpriteElement(1, 0));
-        
-        while(running) 
+        BufferedImage playerImages;
+        screen = new Spielfeld("Game", SPIELFELD_WIDTH, SPIELFELD_HEIGHT);
+         
+        Tileset tileSet = new Tileset("/tiles/raum_tileSet_64_536.png", 8, 8);
+        level = new Level("/level/level1.txt", tileSet);
+         
+        while(true)
         {
-           oldTimestamp = System.currentTimeMillis();
-           update();
-           timestamp= System.currentTimeMillis();
-           if(timestamp-oldTimestamp> maxLoopTime)
-           {
-               System.out.println("Wir sind zu spät!");
-               continue;
-           }
-           render();
-           timestamp= System.currentTimeMillis();
-           System.out.println(maxLoopTime + " : " + (timestamp-oldTimestamp));
-           if(timestamp-oldTimestamp <= maxLoopTime) {
-               try {
-                        //Der Thread schläft solange bis die maxLooptime erreicht ist. So dauert jeder Schleifendurchgang nur 1/60 sec.
-                        Thread.sleep(maxLoopTime - (timestamp-oldTimestamp) );
-                   } catch (InterruptedException e) {
-                        e.printStackTrace();
-                   }
-           }
+            oldTimestamp = System.currentTimeMillis();
+            update();
+            timestamp = System.currentTimeMillis();
+            if(timestamp-oldTimestamp > maxLoopTime)
+            {
+                System.out.println("Wir zu spät!");
+                continue;
+            }
+            render();
+            timestamp = System.currentTimeMillis();
+            System.out.println(maxLoopTime + " : " + (timestamp-oldTimestamp));
+            if(timestamp-oldTimestamp <= maxLoopTime) {
+                try
+                {
+                    Thread.sleep(maxLoopTime - (timestamp-oldTimestamp) );
+                }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
