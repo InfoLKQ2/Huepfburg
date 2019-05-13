@@ -14,6 +14,6 @@ public abstract class Item extends Entity {
      super(name, image, x, y, width, height);
      this.weight = weight;
      this.value = value;
-     this.stackable = stackable;
+     this.stackable = stackable;//Das Attribut stackable sagt aus, das dieses Item im Inventory unserer Spielfigur gestapelt werden kann.
   }
 }

@@ -44,11 +44,11 @@ public class Spiel implements Runnable
         long timestamp;
         long oldTimestamp;
         
-        screen = new Spielfeld("Game", SCREEN_WIDTH, SCREEN_HEIGHT);
+        screen = new Spielfeld("Game", SPIELFELD_WIDTH, SPIELFELD_HEIGHT);
         keyManager = new KeyManager();
         screen.getFrame().addKeyListener(keyManager);
         
-       SpriteSheet playerSprite = new SpriteSheet("/sprites/player.png", 3 /*moves*/, 4 /*directions*/, 64 /*width*/, 64 /*height*/);
+       SpriteSheet playerSprite = new SpriteSheet("/player.png", 3 /*moves*/, 4 /*directions*/, 64 /*width*/, 64 /*height*/);
         player = new Player(320, 320, playerSprite.getSpriteElement(1, 0));
         
         while(running) 
