@@ -5,13 +5,16 @@ import java.io.FileNotFoundException;
 
 
 /**
- * Beschreiben Sie hier die Klasse Utils.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * Die Klasse Utils wandelt die Textdatei, welche die Anordnung der Kacheln beinhaltet, in einen lange String um
+ * Author(Clemens Zander, Jupp Bruns)
+ * Version(10.5.19)
  */
 public class Utils
 {
+    /**
+     * wandelt einen String in eine Zahl um
+     * @param number gibt die Zahl als String weiter
+     */
     public static int parseInt(String number)
     {
         try
@@ -25,27 +28,33 @@ public class Utils
         }
     }
     
+    /**
+     * konvertiert die Textdatei, welche die Anordnung der Kacheln beinhaltet, in einen lange String
+     * @param path gibt dem Pfad zur Textdatei an
+     */
     public static String loadFileAsString(String path)
     {
         StringBuilder builder = new StringBuilder();
         
         //Get file from resources folder
         FileReader file = null;
-        try 
+        try //Versuch die Textdatei durch den Pfad zu finden
         {
             file = new FileReader(Utils.class.getClass().getResource(path).getFile());
         } 
-        catch (FileNotFoundException e1) {
+        catch (FileNotFoundException e1)
+        {
             e1.printStackTrace();
         }
-        if(file != null)
+        if(file != null)//wenn Datei gefunden wurden
         {
-            try
+            try//Versuch jede einzelne Zeile einer Textdatei einzulesen
             {
                 BufferedReader br = new BufferedReader(file);
                 String line;
-                while((line = br.readLine()) != null) {
-                    builder.append(line + "\n");
+                while((line = br.readLine()) != null)//solange etwas in einer Zeile steht
+                {
+                    builder.append(line + "\n");//fügt den Inhalt dieser Zeile dem Builder-Objekt hinzu
                 }
                 br.close();
             }
@@ -54,6 +63,6 @@ public class Utils
                 e.printStackTrace();
             }
         }
-        return builder.toString();
+        return builder.toString();//wandelt Builder Objekt in String um und gibt diesen zurück
     }   
 }   
