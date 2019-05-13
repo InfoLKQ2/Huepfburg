@@ -1,7 +1,8 @@
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 /**
- * Write a description of class Spieler here.
+ * Die Klasse Entity beinhaltet alle Attribute und Operationen welche für alle, auf dem Spielfeld auftauchenden, Kreaturen/Gegenstände gelten.
+ * Dazu zählt ihre Größe, ihre Position und ihr Name
  *
  * @author (Cihan M. Karahan, Gideon J. Schafroth, Shium M. Rahmman)
  * @version (10.05.2019,10:00)

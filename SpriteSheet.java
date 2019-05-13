@@ -3,6 +3,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 /**
+ * Die SpriteSheet Klasse liest die einzelnen Spielfiguransichten (vom Spritesheet) ein.
  * @authors(Gideon S., Shium R., Cihan K.)
  * @version(13.5.19)
  */

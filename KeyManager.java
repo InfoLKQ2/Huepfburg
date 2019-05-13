@@ -2,9 +2,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- * Beschreiben Sie hier die Klasse KeyManager.
+ * Die KeyManager Klasse realisiert einen Tastendruck und gibt diese Information an das Spiel weiter 
  * 
- * @author (Ihr Name) 
+ * @author (Cihan Karahan, Shium Rahman, Gideon Schafroth) 
  * @version (eine Versionsnummer oder ein Datum)
  */
 

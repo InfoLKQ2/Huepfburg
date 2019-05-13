@@ -1,9 +1,9 @@
 import java.awt.image.BufferedImage;
 /**
- * Beschreiben Sie hier die Klasse Item.
+ * Die Klasse Item, beschäftigt sich mit allen Geegenständen welche auf dem Spielfeld auftauchen
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author (Cihan M. Karahan, Gideon J. Schafroth, Shium M. Rahmman) 
+ * @version (13.05.2019)
  */
 public abstract class Item extends Entity {
   protected int weight;

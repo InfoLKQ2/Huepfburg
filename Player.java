@@ -1,9 +1,9 @@
 import java.awt.image.BufferedImage;
 /**
- * Beschreiben Sie hier die Klasse Player.
+ * Die Klasse Player beschäftigt sich mit allen Funktionen, die der Spieler durch die Spielfigur ausführen kann
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author ((Cihan M. Karahan, Gideon J. Schafroth, Shium M. Rahmman)) 
+ * @version (13.05.2019)
  */
 
 public class Player extends Creature {

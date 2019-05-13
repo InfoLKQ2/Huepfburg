@@ -6,10 +6,10 @@ import java.awt.image.BufferStrategy;
 import java.io.File;
 import java.io.IOException;
 /**
- * Beschreiben Sie hier die Klasse Spiel.
+ * Hauptklasse des Hüpfburg-2D Spiels- Hier wird das Spiel gestartet
  * 
- * @author (Cihan M. Karahan, Gideon J. Schafroth, Shium M. Rahmman, Jupp Bruns, Clemens Zander) 
- * @version (13.05.2019 8.55)
+ * @author (Team Hüpfburg: Cihan M. Karahan, Gideon J. Schafroth, Shium M. Rahmman, Jupp Bruns, Clemens Zander) 
+ * @version (13.05.2019)
  */
 public class Spiel implements Runnable
 {

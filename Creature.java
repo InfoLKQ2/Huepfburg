@@ -1,10 +1,10 @@
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 /**
- * Beschreiben Sie hier die Klasse Spieler.
+ * Die Klasse Creature beschäftigt sich mit allen Kraturen, welch sich auf dem Spielfeld befinden
  * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
+ * @author (Cihan M. Karahan, Gideon J. Schafroth, Shium M. Rahmman) 
+ * @version (13.05.2019)
  */
 public abstract class Creature extends Entity
 {
