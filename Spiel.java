@@ -1,6 +1,7 @@
 import java.awt.Canvas;
 import java.awt.Point;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import java.awt.image.BufferStrategy;
 /**
  * Beschreiben Sie hier die Klasse Spiel.
@@ -16,21 +17,15 @@ public class Spiel implements Runnable
     public static final long maxLoopTime = 1000 / FPS;
     public static final int SPIELFELD_WIDTH = 640;
     public static final int SPIELFELD_HEIGHT = 640;
-    public Spielfeld screen;
-    Player player;
-    //Level level;
-    KeyManager keyManager;
-    BufferStrategy bs;
-    Graphics g;
-    /**
-     * Konstruktor für Objekte der Klasse Spiel
-     */
-    public Spiel()
-    {
-        // Instanzvariable initialisieren
-        
-    }
-     // KeyManager keyManager = new KeyManager();
+    
+    private Spielfeld screen;
+    private Player player;
+    private Level level;
+    private KeyManager keyManager;
+    private BufferStrategy bs;
+    private Graphics g;
+    
+      // KeyManager keyManager = new KeyManager();
       // spielfeld.getFrame().addKeyListener(keyManager);
       
     public static void main(String[] args){
@@ -40,9 +35,11 @@ public class Spiel implements Runnable
     }
     
     @Override
-    public void run() {
+    public void run()
+    {
         long timestamp;
         long oldTimestamp;
+
         
         screen = new Spielfeld("Game", SPIELFELD_WIDTH, SPIELFELD_HEIGHT);
         keyManager = new KeyManager();
@@ -51,27 +48,38 @@ public class Spiel implements Runnable
        SpriteSheet playerSprite = new SpriteSheet("/player.png", 3 /*moves*/, 4 /*directions*/, 64 /*width*/, 64 /*height*/);
         player = new Player(320, 320, playerSprite.getSpriteElement(1, 0));
         
-        while(running) 
+       
+
+        BufferedImage playerImages;
+        screen = new Spielfeld("Game", SPIELFELD_WIDTH, SPIELFELD_HEIGHT);
+         
+        Tileset tileSet = new Tileset("/tiles/raum_tileSet_64_536.png", 8, 8);
+        level = new Level("/level/level1.txt", tileSet);
+         
+        while(true)
+
         {
-           oldTimestamp = System.currentTimeMillis();
-           update();
-           timestamp= System.currentTimeMillis();
-           if(timestamp-oldTimestamp> maxLoopTime)
-           {
-               System.out.println("Wir sind zu spät!");
-               continue;
-           }
-           render();
-           timestamp= System.currentTimeMillis();
-           System.out.println(maxLoopTime + " : " + (timestamp-oldTimestamp));
-           if(timestamp-oldTimestamp <= maxLoopTime) {
-               try {
-                        //Der Thread schläft solange bis die maxLooptime erreicht ist. So dauert jeder Schleifendurchgang nur 1/60 sec.
-                        Thread.sleep(maxLoopTime - (timestamp-oldTimestamp) );
-                   } catch (InterruptedException e) {
-                        e.printStackTrace();
-                   }
-           }
+            oldTimestamp = System.currentTimeMillis();
+            update();
+            timestamp = System.currentTimeMillis();
+            if(timestamp-oldTimestamp > maxLoopTime)
+            {
+                System.out.println("Wir zu spät!");
+                continue;
+            }
+            render();
+            timestamp = System.currentTimeMillis();
+            System.out.println(maxLoopTime + " : " + (timestamp-oldTimestamp));
+            if(timestamp-oldTimestamp <= maxLoopTime) {
+                try
+                {
+                    Thread.sleep(maxLoopTime - (timestamp-oldTimestamp) );
+                }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
